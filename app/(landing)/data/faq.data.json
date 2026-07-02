@@ -1,0 +1,27 @@
+[
+  {
+    "value": "financial-advice",
+    "title": "Is this registered financial advice?",
+    "description": "No, this is an educational hackathon project. It explains concepts and builds illustrative plans, but every decision and its risk remains yours"
+  },
+  {
+    "value": "free",
+    "title": "Is it free?",
+    "description": "Yes, completely free and educational. No card, no subscription, no hidden tiers."
+  },
+  {
+    "value": "different-chatbot",
+    "title": "How is it different from a normal chatbot?",
+    "description": "It onboards you like a friend, builds a structured risk profile, generates a real fund-based plan you can simulate, and switches to Calm Mode when it senses panic."
+  },
+  {
+    "value": "live-data",
+    "title": "Does it use live market data?",
+    "description": "No live trading or live prices. Plans are built from a curated static dataset of fund categories, so the demo always works reliably."
+  },
+  {
+    "value": "calm-mode",
+    "title": "What is Calm mode?",
+    "description": "When you sound stressed ('Sell everything', 'I can't sleep'), NiveshMitra slows down, reassures you, and helps you avoid panic decisions."
+  }
+]
