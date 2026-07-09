@@ -56,7 +56,7 @@
   --card-foreground: oklch(0.145 0 0);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.145 0 0);
-  --link: var(--color-blue-400);
+  --link: oklch(0.614 0.17228 280.447);
   --primary: oklch(0.457 0.24 277.023);
   --primary-foreground: oklch(0.962 0.018 272.314);
   --secondary: oklch(0.967 0.001 286.375);
@@ -176,7 +176,7 @@
     }
 
     p {
-      @apply leading-normal;
+      @apply leading-normal my-4;
     }
 
     a {
@@ -231,7 +231,7 @@
     }
 
     table {
-      @apply w-full text-left;
+      @apply w-full text-left my-8!;
 
       thead {
         @apply border-b-2;

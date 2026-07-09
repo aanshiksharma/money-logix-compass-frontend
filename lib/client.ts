@@ -1,8 +1,7 @@
-const API_URL = "http://localhost:5000/";
+const API_URL = process.env.NEXT_PUBLIC_BACKEND_URL || "http://localhost:5000";
 
 export async function api<T>(path: string, options?: RequestInit): Promise<T> {
-  const response = await fetch(`${API_URL}${path}`, {
-    credentials: "include",
+  const response = await fetch(`${API_URL}/api${path}`, {
     headers: {
       "Content-Type": "application/json",
       ...options?.headers,

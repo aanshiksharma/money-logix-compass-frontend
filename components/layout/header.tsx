@@ -21,10 +21,16 @@ interface PropTypes {
     label: string;
   }[];
   size?: "default" | "sm";
+  className?: string;
   children?: ReactNode;
 }
 
-export function Header({ links, size = "default", children }: PropTypes) {
+export function Header({
+  links,
+  size = "default",
+  className,
+  children,
+}: PropTypes) {
   return (
     <header
       className={`
@@ -32,9 +38,10 @@ export function Header({ links, size = "default", children }: PropTypes) {
         flex items-center justify-between
         bg-transparent backdrop-blur-md
         w-full px-4 ${size === "sm" ? "py-2" : "py-4"}
+        ${className}
     `}
     >
-      <div>MoneyLogix</div>
+      <div>Compass</div>
 
       {/* 
         links && mobile: hidden; desktop: flex;
@@ -82,7 +89,7 @@ export function Header({ links, size = "default", children }: PropTypes) {
         </SheetTrigger>
         <SheetContent>
           <SheetHeader>
-            <SheetTitle>MoneyLogix</SheetTitle>
+            <SheetTitle>Compass</SheetTitle>
           </SheetHeader>
 
           <nav className="[@media(hover:hover)]:hidden">
