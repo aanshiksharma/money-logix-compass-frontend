@@ -33,7 +33,7 @@ export default function PromptBox({
   handleSubmit,
 }: PropTypes) {
   return (
-    <InputGroup className="backdrop-blur-md">
+    <InputGroup className="bg-card!">
       <InputGroupTextarea
         value={value}
         placeholder="Ask anything"

@@ -2,6 +2,7 @@ import { Dispatch, SetStateAction } from "react";
 
 export type ChatRequest = {
   email: string | null;
+  conversationId: string;
   message: string;
   thinkMode?: boolean;
 };
@@ -62,15 +63,19 @@ export type Message = {
 export type BackendMessages = {
   role: "user" | "assistant";
   content: string;
-  detectedEmotion: string;
+  detectedEmotion: string | null;
+  riskSignal: string;
+  confidence: number;
+  panicMode: boolean;
+  triggeredBy: string | null;
 }[];
 
 export type Conversation = {
-  id: string;
+  _id: string;
   userId: string;
   slug: string;
   title: string;
-  messages: string[];
+  messages: Message[];
   createdAt: string;
   updatedAt: string;
   __v: number;
@@ -87,5 +92,5 @@ export type ChatContextType = {
   setNewChat: Dispatch<SetStateAction<boolean>>;
   setMessages: Dispatch<SetStateAction<Message[]>>;
   setIsSending: Dispatch<SetStateAction<boolean>>;
-  setCurrentChatMessages: (messages: BackendMessages) => void;
+  setCurrentChatMessages: (slug: string) => void;
 };

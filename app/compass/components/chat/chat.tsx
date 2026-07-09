@@ -1,20 +1,32 @@
 "use client";
 
-import { Dispatch, SetStateAction } from "react";
+import { useEffect } from "react";
 
 import { Button } from "@/components/ui/button";
 
-import PromptBox from "./prompt-box";
 import { UserMessage, AssistantMessage, MessageLoading } from "./message";
+import Composer from "./composer";
 
 import { useChat } from "../../hooks/use-chat";
 import { useUser } from "@/hooks/use-user";
 
 import { SUGGESTIONS } from "@/app/compass/data/defaultPrompts";
-import Composer from "./composer";
 
-export function Chat() {
-  const { messages, isSending, sendMessage } = useChat();
+export function Chat({ slug }: { slug?: string }) {
+  const {
+    messages,
+    conversations,
+    isSending,
+    sendMessage,
+    setCurrentChatMessages,
+  } = useChat();
+
+  useEffect(() => {
+    if (!slug) return;
+    if (!conversations.length) return;
+
+    setCurrentChatMessages(slug);
+  }, [slug, conversations]);
 
   const handleSubmit = async (prompt: string) => {
     const trimmed = prompt.trim();

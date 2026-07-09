@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef, useEffect } from "react";
+import { useRef, useEffect } from "react";
 
 import Container from "@/components/shared/container";
 import { Chat, NewChat } from "./components/chat/chat";
@@ -15,7 +15,7 @@ export default function Dashboard() {
 
   useEffect(() => {
     chatContainerRef.current?.scrollTo({
-      top: chatContainerRef.current.scrollHeight,
+      top: chatContainerRef.current.scrollHeight + 100,
       behavior: "smooth",
     });
   }, [messages, isSending]);

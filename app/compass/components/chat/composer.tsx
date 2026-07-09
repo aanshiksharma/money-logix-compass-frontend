@@ -17,7 +17,7 @@ export default function Composer({
         handleSubmit(value);
         setValue("");
       }}
-      className="w-full sticky bottom-6"
+      className="w-full sticky bottom-8 after:bg-background after:[content:''] after:h-8 after:absolute -after:bottom-full after:w-full after:-z-10"
     >
       <PromptBox
         value={value}

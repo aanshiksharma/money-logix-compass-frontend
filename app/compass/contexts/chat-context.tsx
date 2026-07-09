@@ -27,7 +27,6 @@ export function ChatProvider({ children }: { children: ReactNode }) {
 
   useEffect(() => {
     getAllConversations();
-    console.log(newChat);
   }, [user]);
 
   const getAllConversations = async () => {
@@ -87,11 +86,13 @@ export function ChatProvider({ children }: { children: ReactNode }) {
 
       const response = await sendMessageRequest({
         email: user ? user.email : null,
+        conversationId,
         message: prompt,
         thinkMode: true,
       });
 
-      setConversationId(response.conversationId);
+      if (!conversationId.trim()) setConversationId(response.conversationId);
+
       appendMessage(response.reply, "assistant", response.emotion);
     } catch (err) {
       handleError(err);
@@ -100,7 +101,16 @@ export function ChatProvider({ children }: { children: ReactNode }) {
     }
   };
 
-  const setCurrentChatMessages = () => {};
+  const setCurrentChatMessages = (slug: string) => {
+    const currentConversation = conversations.find(
+      (conversation) => conversation.slug === slug,
+    );
+
+    if (currentConversation) {
+      setConversationId(currentConversation._id);
+      setMessages(currentConversation.messages);
+    }
+  };
 
   return (
     <ChatContext.Provider
