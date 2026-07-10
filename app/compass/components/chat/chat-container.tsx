@@ -1,6 +1,7 @@
 "use client";
 
 import { ReactNode, useEffect, useRef } from "react";
+import { useChat } from "../../hooks/use-chat";
 
 export default function ChatContainer({
   newChat,
@@ -9,9 +10,17 @@ export default function ChatContainer({
   newChat?: boolean;
   children: ReactNode;
 }) {
-  const chatContainerRef = useRef(null);
+  const chatContainerRef = useRef<HTMLDivElement>(null);
+  const { messages, isSending } = useChat();
 
-  useEffect(() => {}, [chatContainerRef.current]);
+  useEffect(() => {
+    if (!chatContainerRef.current) return;
+
+    chatContainerRef.current.scrollTo({
+      top: chatContainerRef.current.scrollHeight,
+      behavior: "smooth",
+    });
+  }, [chatContainerRef.current, messages, isSending]);
 
   return (
     <div

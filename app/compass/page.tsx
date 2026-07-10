@@ -9,16 +9,7 @@ import { useChat } from "./hooks/use-chat";
 import ChatContainer from "./components/chat/chat-container";
 
 export default function Dashboard() {
-  const chatContainerRef = useRef<HTMLDivElement>(null);
-
-  const { newChat, messages, isSending, sendMessage } = useChat();
-
-  useEffect(() => {
-    chatContainerRef.current?.scrollTo({
-      top: chatContainerRef.current.scrollHeight + 100,
-      behavior: "smooth",
-    });
-  }, [messages, isSending]);
+  const { newChat } = useChat();
 
   return (
     <>

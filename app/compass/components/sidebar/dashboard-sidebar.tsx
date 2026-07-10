@@ -13,13 +13,17 @@ import {
   SidebarMenuItem,
   SidebarMenuButton,
   useSidebar,
+  SidebarGroup,
 } from "@/components/ui/sidebar";
 import {
   GalleryVerticalEndIcon,
   SquarePen,
   Search,
   PanelLeft,
+  ChartNoAxesGantt,
 } from "lucide-react";
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import PlanDashbord from "../plan-dashboard/plan-dashboard";
 
 export default function DashboardSidebar({
   ...props
@@ -53,6 +57,7 @@ export default function DashboardSidebar({
 
       <SidebarContent>
         <NavMain />
+        <PlanDashbord />
         <SidebarChats />
       </SidebarContent>
 
