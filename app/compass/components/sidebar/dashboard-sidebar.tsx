@@ -15,20 +15,13 @@ import {
   useSidebar,
   SidebarGroup,
 } from "@/components/ui/sidebar";
-import {
-  GalleryVerticalEndIcon,
-  SquarePen,
-  Search,
-  PanelLeft,
-  ChartNoAxesGantt,
-} from "lucide-react";
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import { GalleryVerticalEndIcon, PanelLeft } from "lucide-react";
 import PlanDashbord from "../plan-dashboard/plan-dashboard";
 
 export default function DashboardSidebar({
   ...props
 }: React.ComponentProps<typeof Sidebar>) {
-  const { open, setOpen } = useSidebar();
+  const { open, toggleSidebar } = useSidebar();
 
   return (
     <Sidebar collapsible="icon" {...props} className="group">
@@ -47,7 +40,7 @@ export default function DashboardSidebar({
             <SidebarMenuButton
               tooltip="Toggle Sidebar"
               className={`w-fit ${!open && "hidden group-hover:flex"}`}
-              onClick={() => setOpen(open ? false : true)}
+              onClick={toggleSidebar}
             >
               <PanelLeft />
             </SidebarMenuButton>

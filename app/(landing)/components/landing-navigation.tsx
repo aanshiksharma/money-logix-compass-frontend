@@ -4,18 +4,18 @@ import Link from "next/link";
 
 const navbarLinks = [
   {
-    url: "#howItWorks",
+    url: "#how",
     label: "How it Works",
   },
   {
-    url: "#whyUs",
+    url: "#why",
     label: "Why us?",
   },
 ];
 
 export default function LandingNavigation() {
   return (
-    <Header links={navbarLinks}>
+    <Header links={navbarLinks} className="fixed!">
       <Button asChild variant="secondary">
         <Link href="/login">Login</Link>
       </Button>

@@ -14,10 +14,7 @@ export function UserMessage({ content }: Proptype) {
 
 export function AssistantMessage({ content }: Proptype) {
   return (
-    <article
-      id="assistant-message"
-      className="mb-4 text-secondary-foreground last:mb-50"
-    >
+    <article className="markdown mb-4 text-secondary-foreground last:mb-50">
       <ReactMarkdown remarkPlugins={[remarkGfm]}>{content}</ReactMarkdown>
     </article>
   );

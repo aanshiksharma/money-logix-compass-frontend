@@ -1,5 +1,4 @@
-import faqs from "../data/faq.data.json";
-
+import { FAQS } from "../data/faq";
 import Container from "@/components/shared/container";
 
 import {
@@ -11,18 +10,23 @@ import {
 
 function FAQs() {
   return (
-    <Container className="min-h-screen">
-      <div className="flex flex-col gap-3 text-center">
-        <h2 className="sub-heading">Frequently Asked Questions</h2>
-        <p className="heading">Everything you need before you start.</p>
+    <Container className="py-20">
+      <div className="section-header">
+        <h2 className="section-heading">Questions, Answered!</h2>
+        <p className="section-subheading">
+          Everything you need to know before starting your first investment
+          conversation with Compass.
+        </p>
       </div>
 
       <Accordion type="multiple" className="max-w-xl">
-        {faqs.map((faq, index) => (
-          <AccordionItem key={index} value={faq.value}>
-            <AccordionTrigger>{faq.title}</AccordionTrigger>
-            <AccordionContent className="text-muted-foreground">
-              {faq.description}
+        {FAQS.map((faq, index) => (
+          <AccordionItem key={index} value={faq.question} className="">
+            <AccordionTrigger className="text-base items-center">
+              {faq.question}
+            </AccordionTrigger>
+            <AccordionContent className="text-base text-muted-foreground">
+              {faq.answer}
             </AccordionContent>
           </AccordionItem>
         ))}

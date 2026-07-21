@@ -22,7 +22,7 @@ import { useChat } from "../../hooks/use-chat";
 
 export function SidebarChats() {
   const { isMobile } = useSidebar();
-  const { conversations } = useChat();
+  const { conversationId, conversations, deleteConversation } = useChat();
 
   return (
     <SidebarGroup className="group-data-[collapsible=icon]:hidden">
@@ -30,7 +30,7 @@ export function SidebarChats() {
         {conversations.length > 0 && "Chats"}
       </SidebarGroupLabel>
       <SidebarMenu>
-        {conversations.map((conversation, index) => (
+        {conversations.toReversed().map((conversation, index) => (
           <SidebarMenuItem key={index}>
             <SidebarMenuButton asChild>
               <a href={`/compass/${conversation.slug}`} className="h-auto">
@@ -53,9 +53,12 @@ export function SidebarChats() {
                 side={isMobile ? "bottom" : "right"}
                 align={isMobile ? "end" : "start"}
               >
-                <DropdownMenuItem variant="destructive">
+                <DropdownMenuItem
+                  variant="destructive"
+                  onClick={() => deleteConversation(conversationId)}
+                >
                   <Trash2Icon />
-                  <span>Delete Project</span>
+                  <span>Delete Chat</span>
                 </DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>

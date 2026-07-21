@@ -5,9 +5,12 @@ import { useState, useEffect, createContext, ReactNode } from "react";
 import { ChatContextType } from "../types";
 import { Message, Emotion, Conversation } from "../types";
 
+import { toast } from "sonner";
+
 import {
   fetchAllConversations,
   sendMessage as sendMessageRequest,
+  deleteConversation as removeConversation,
 } from "../lib/chat-api";
 
 import { useUser } from "@/hooks/use-user";
@@ -44,6 +47,10 @@ export function ChatProvider({ children }: { children: ReactNode }) {
     } finally {
       setLoading(false);
     }
+  };
+
+  const deleteConversation = async (conversationId: string) => {
+    await removeConversation(conversationId);
   };
 
   const appendMessage: (
@@ -91,6 +98,8 @@ export function ChatProvider({ children }: { children: ReactNode }) {
         thinkMode: true,
       });
 
+      console.log(response);
+
       if (!conversationId.trim()) setConversationId(response.conversationId);
 
       appendMessage(response.reply, "assistant", response.emotion);
@@ -126,6 +135,7 @@ export function ChatProvider({ children }: { children: ReactNode }) {
         setMessages,
         setIsSending,
         sendMessage,
+        deleteConversation,
         setCurrentChatMessages,
       }}
     >

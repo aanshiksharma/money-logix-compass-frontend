@@ -1,0 +1,102 @@
+@layer components {
+  .markdown {
+    h1 {
+      @apply text-3xl font-bold leading-loose;
+    }
+
+    h2 {
+      @apply text-2xl font-bold leading-loose;
+    }
+
+    h3 {
+      @apply text-xl font-semibold leading-loose;
+    }
+
+    h4 {
+      @apply text-lg font-semibold leading-relaxed;
+    }
+
+    h5 {
+      @apply font-semibold leading-relaxed;
+    }
+
+    h6 {
+      @apply text-sm leading-relaxed;
+    }
+
+    p {
+      @apply leading-normal my-4;
+    }
+
+    a {
+      @apply text-link hover:underline;
+    }
+
+    ol {
+      @apply list-decimal;
+    }
+    ul {
+      @apply list-disc;
+    }
+
+    li {
+      @apply leading-loose list-inside;
+
+      &:has(> input) {
+        @apply list-none;
+      }
+
+      &:has(> ul, > ol) {
+        ul,
+        ol {
+          @apply pl-6;
+        }
+      }
+    }
+
+    blockquote {
+      @apply pl-5 py-1 my-2 relative;
+
+      &::before {
+        content: "";
+        @apply bg-muted w-1 h-full rounded-full absolute inset-0 right-auto;
+      }
+
+      p {
+        @apply leading-loose;
+      }
+    }
+
+    hr {
+      @apply border-muted my-8!;
+    }
+
+    code:not(pre > code) {
+      @apply bg-secondary text-secondary-foreground px-1 py-0.5 rounded-sm;
+    }
+
+    pre {
+      @apply px-4 py-6 border rounded-xl overflow-x-auto;
+    }
+
+    table {
+      @apply w-full text-left my-8!;
+
+      thead {
+        @apply border-b-2;
+      }
+
+      tr {
+        @apply border-b;
+
+        th {
+          @apply py-1;
+        }
+
+        td {
+          @apply py-3;
+        }
+      }
+    }
+  }
+}

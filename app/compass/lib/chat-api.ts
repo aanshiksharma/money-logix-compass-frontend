@@ -20,3 +20,12 @@ export async function fetchConversationByConversationId(
 ): Promise<Conversation> {
   return api(`/chat/${conversationId}`);
 }
+
+export async function deleteConversation(
+  conversationId: string,
+): Promise<void> {
+  return api("/chat", {
+    method: "DELETE",
+    body: JSON.stringify({ conversationId }),
+  });
+}

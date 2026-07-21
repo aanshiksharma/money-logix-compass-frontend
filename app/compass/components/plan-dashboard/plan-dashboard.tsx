@@ -18,23 +18,7 @@ import { useEffect } from "react";
 import { useIsMobile } from "@/hooks/use-mobile";
 import PlanHeader from "./plan-header";
 import AllocationChart from "./allocation-chart";
-import {
-  Card,
-  CardAction,
-  CardContent,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
-import {
-  Item,
-  ItemContent,
-  ItemDescription,
-  ItemTitle,
-} from "@/components/ui/item";
-import { useSimulation } from "../../hooks/use-simulation";
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
-import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
+import { ScrollArea } from "@/components/ui/scroll-area";
 import Stats from "./stats";
 import SimulationCard from "./simulation-card";
 import Milestones from "./milestones";
@@ -63,7 +47,7 @@ export default function PlanDashbord() {
       >
         <PlanHeader />
 
-        <ScrollArea className="h-3/4 rounded-md">
+        <ScrollArea className="h-[calc(100%-136px)] rounded-md">
           <div className="flex flex-col gap-8 px-4 py-6">
             <div className="flex flex-col gap-2 text-center">
               <h3 className="text-2xl">{plan?.templateName}</h3>
@@ -89,7 +73,7 @@ export default function PlanDashbord() {
           </div>
         </ScrollArea>
 
-        <SheetFooter className="text-center text-pretty text-xs text-muted-foreground">
+        <SheetFooter className="text-center text-pretty text-xs text-muted-foreground bg-sidebar/50 backdrop-blur sticky bottom-0">
           {plan?.disclaimer}
         </SheetFooter>
       </SheetContent>

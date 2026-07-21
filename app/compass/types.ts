@@ -89,6 +89,7 @@ export type ChatContextType = {
   error: string | null;
   newChat: boolean;
   sendMessage: (prompt: string) => void;
+  deleteConversation: (conversationId: string) => void;
   setNewChat: Dispatch<SetStateAction<boolean>>;
   setMessages: Dispatch<SetStateAction<Message[]>>;
   setIsSending: Dispatch<SetStateAction<boolean>>;

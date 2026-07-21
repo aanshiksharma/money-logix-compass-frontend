@@ -1,0 +1,73 @@
+@layer utilities {
+  .sweep-effect {
+    @apply hover:shadow-[0_14px_38px_var(--btn-glow)];
+    transform: translateZ(0);
+
+    &::after {
+      content: "";
+      @apply absolute top-0 -left-3/5 w-9/20 h-full pointer-events-none transition-all duration-600 ease-out;
+
+      background: linear-gradient(
+        100deg,
+        transparent,
+        rgba(255, 255, 255, 0.38),
+        transparent
+      );
+
+      transform: skew(-20deg);
+    }
+
+    &:hover::after {
+      left: 130%;
+    }
+  }
+
+  .landing-btn {
+    @apply px-6 py-3 h-auto rounded-full! overflow-hidden text-base font-semibold;
+  }
+
+  .gradient-background {
+    background-image: var(--gradient);
+  }
+
+  .gradient-text {
+    background: var(--gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    &.animate-gradient {
+      background-size: 200% auto;
+      animation: gradientShift 5s ease infinite;
+    }
+  }
+
+  .section-header {
+    @apply py-20 flex flex-col items-center gap-6 w-full;
+
+    .section-heading {
+      @apply text-3xl md:text-4xl text-center text-balance font-semibold max-w-xl mx-auto;
+    }
+
+    .section-subheading {
+      @apply text-muted-foreground text-center text-balance max-w-2xl md:text-xl;
+    }
+  }
+
+  .footer-link {
+    @apply relative hover:text-secondary-foreground transition ease-out duration-200;
+
+    &::after {
+      content: "";
+      top: 110%;
+      width: 0;
+      height: 1px;
+
+      @apply absolute left-0 rounded bg-secondary-foreground transition-all ease-out duration-200;
+    }
+
+    &:hover::after {
+      width: 50%;
+    }
+  }
+}

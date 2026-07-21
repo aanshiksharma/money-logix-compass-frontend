@@ -2,6 +2,11 @@
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
 
+@import "./styles/animations.css";
+@import "./styles/utilities.css";
+@import "./styles/components.css";
+@import "./styles/markdown.css";
+
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
@@ -83,6 +88,12 @@
   --sidebar-accent-foreground: oklch(0.205 0 0);
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
+  --gradient: linear-gradient(
+    100deg,
+    #2b6cff 0%,
+    var(--primary) 50%,
+    #a855f7 100%
+  );
 }
 
 .dark {
@@ -92,7 +103,7 @@
   --card-foreground: oklch(0.985 0 0);
   --popover: oklch(0.205 0 0);
   --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.398 0.195 277.366);
+  --primary: #372aac;
   --primary-foreground: oklch(0.962 0.018 272.314);
   --secondary: oklch(0.274 0.006 286.033);
   --secondary-foreground: oklch(0.985 0 0);
@@ -123,8 +134,9 @@
   * {
     @apply border-border outline-ring/50;
   }
+
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground overflow-x-hidden;
 
     -ms-overflow-style: hidden;
     scrollbar-width: 0;
@@ -137,117 +149,9 @@
   [role="button"]:not(:disabled) {
     cursor: pointer;
   }
+
   html {
     @apply font-sans;
     scroll-behavior: smooth;
-  }
-
-  .sub-heading {
-    @apply text-muted-foreground uppercase text-xs;
-  }
-
-  .heading {
-    @apply text-3xl sm:text-4xl text-pretty max-w-lg font-medium;
-  }
-
-  #assistant-message {
-    h1 {
-      @apply text-3xl font-bold leading-loose;
-    }
-
-    h2 {
-      @apply text-2xl font-bold leading-loose;
-    }
-
-    h3 {
-      @apply text-xl font-semibold leading-loose;
-    }
-
-    h4 {
-      @apply text-lg font-semibold leading-relaxed;
-    }
-
-    h5 {
-      @apply font-semibold leading-relaxed;
-    }
-
-    h6 {
-      @apply text-sm leading-relaxed;
-    }
-
-    p {
-      @apply leading-normal my-4;
-    }
-
-    a {
-      @apply text-link hover:underline;
-    }
-
-    ol {
-      @apply list-decimal;
-    }
-    ul {
-      @apply list-disc;
-    }
-
-    li {
-      @apply leading-loose list-inside;
-
-      &:has(> input) {
-        @apply list-none;
-      }
-
-      &:has(> ul, > ol) {
-        ul,
-        ol {
-          @apply pl-6;
-        }
-      }
-    }
-
-    blockquote {
-      @apply pl-5 py-1 my-2 relative;
-
-      &::before {
-        content: "";
-        @apply bg-muted w-1 h-full rounded-full absolute inset-0 right-auto;
-      }
-
-      p {
-        @apply leading-loose;
-      }
-    }
-
-    hr {
-      @apply border-muted my-8!;
-    }
-
-    code:not(pre > code) {
-      @apply bg-secondary text-secondary-foreground px-1 py-0.5 rounded-sm;
-    }
-
-    pre {
-      @apply px-4 py-6 border rounded-xl overflow-x-auto;
-    }
-
-    table {
-      @apply w-full text-left my-8!;
-
-      thead {
-        @apply border-b-2;
-      }
-
-      tr {
-        @apply border-b;
-
-        th {
-          @apply py-1;
-        }
-
-        td {
-          @apply py-3;
-        }
-      }
-    }
   }
 }

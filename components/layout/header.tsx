@@ -13,7 +13,8 @@ import {
   SheetTrigger,
   SheetFooter,
 } from "../ui/sheet";
-import { Menu } from "lucide-react";
+import { Menu, Sidebar } from "lucide-react";
+import { useSidebar } from "../ui/sidebar";
 
 interface PropTypes {
   links?: {
@@ -22,15 +23,24 @@ interface PropTypes {
   }[];
   size?: "default" | "sm";
   className?: string;
+  sidebarToggle?: boolean;
   children?: ReactNode;
 }
 
 export function Header({
   links,
   size = "default",
+  sidebarToggle = false,
   className,
   children,
 }: PropTypes) {
+  let open;
+
+  if (sidebarToggle) {
+    const { toggleSidebar } = useSidebar();
+    open = toggleSidebar;
+  }
+
   return (
     <header
       className={`
@@ -41,7 +51,20 @@ export function Header({
         ${className}
     `}
     >
-      <div>Compass</div>
+      <div className="flex items-center gap-3">
+        {sidebarToggle && (
+          <Button
+            size="icon"
+            variant="ghost"
+            className={`md:hidden`}
+            onClick={open}
+          >
+            <Sidebar />
+          </Button>
+        )}
+
+        <a href="/">Compass</a>
+      </div>
 
       {/* 
         links && mobile: hidden; desktop: flex;

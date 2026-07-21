@@ -13,13 +13,13 @@ export function PlanProvider({ children }: { children: ReactNode }) {
   const [plan, setPlan] = useState<Plan | null>(null);
   const [error, setError] = useState<string>("");
 
-  const { conversationId } = useChat();
+  const { messages, conversationId } = useChat();
 
   useEffect(() => {
     if (!conversationId.trim()) return;
 
     getPlan();
-  }, [conversationId]);
+  }, [conversationId, messages]);
 
   const getPlan = async () => {
     try {

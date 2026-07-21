@@ -1,0 +1,59 @@
+@layer components {
+  .landing {
+    background:
+      radial-gradient(
+        900px 500px at 12% -8%,
+        rgba(66, 133, 244, 0.12) 0%,
+        transparent 55%
+      ),
+      radial-gradient(
+        900px 600px at 90% 0%,
+        rgba(155, 114, 203, 0.1) 0%,
+        transparent 55%
+      ),
+      var(--background), no-repeat;
+
+    &::before {
+      content: "";
+
+      @apply fixed inset-0 z-0 pointer-events-none opacity-46;
+
+      background-image:
+        linear-gradient(rgba(138, 180, 248, 0.1) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(138, 180, 248, 0.1) 1px, transparent 1px);
+      background-size: 72px 72px;
+
+      -webkit-mask-image: linear-gradient(
+        to bottom,
+        var(--background) 0%,
+        transparent 76%
+      );
+      mask-image: linear-gradient(
+        to bottom,
+        var(--background) 0%,
+        transparent 76%
+      );
+      animation: landingGridDrift 28s linear infinite;
+    }
+
+    .hero {
+      &::before {
+        content: "";
+        @apply absolute inset-[-10%_-5%_auto_-5%] z-0 h-105 blur-md pointer-events-none;
+
+        background:
+          radial-gradient(
+            520px 320px at 18% 20%,
+            rgba(43, 108, 255, 0.18) 0%,
+            transparent 60%
+          ),
+          radial-gradient(
+            560px 360px at 88% 10%,
+            rgba(168, 85, 247, 0.16) 0%,
+            transparent 60%
+          );
+        animation: heroGlow 9s ease-in-out infinite alternate;
+      }
+    }
+  }
+}
