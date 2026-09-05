@@ -94,6 +94,12 @@
     var(--primary) 50%,
     #a855f7 100%
   );
+  --background-gradient: linear-gradient(
+    45deg,
+    #556df7 0%,
+    var(--primary) 50%,
+    #5558f7 100%
+  );
 }
 
 .dark {

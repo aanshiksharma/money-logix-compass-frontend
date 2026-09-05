@@ -4,8 +4,8 @@ import { Button } from "@/components/ui/button";
 
 function Hero() {
   return (
-    <Container className={`hero min-h-screen overflow-x-hidden text-center`}>
-      <div className="space-y-6 py-30">
+    <Container className={`hero text-center`}>
+      <div className="sticky top-6 space-y-6 py-30">
         <h1 className="leading-none text-4xl lg:text-6xl font-semibold text-balance">
           Invest with <span className="gradient-text animate">confidence,</span>
           <br />
@@ -32,7 +32,7 @@ function Hero() {
         </div>
       </div>
 
-      <div className="border px-6 py-7 w-full max-w-5xl flex items-center justify-center rounded-2xl bg-background">
+      <div className="relative border px-6 py-7 w-full max-w-5xl flex items-center justify-center rounded-2xl bg-background">
         <div className="bg-accent w-full aspect-video rounded-lg"></div>
       </div>
     </Container>

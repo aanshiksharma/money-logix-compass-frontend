@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 
 function ClosingCTA() {
   return (
-    <Container className="py-10">
+    <Container className="py-8">
       <div className="gradient-background text-primary-foreground max-w-5xl rounded-4xl section-header">
         <h2 className="section-heading">
           Start with a conversation <br />
@@ -17,9 +17,9 @@ function ClosingCTA() {
 
         <Button
           asChild
-          className="bg-primary-foreground hover:bg-primary-foregroun hover:-translate-y-1 text-primary"
+          className="bg-primary-foreground hover:bg-primary-foreground hover:-translate-y-1 mt-6 text-primary"
         >
-          <a href="/register" className="landing-btn">
+          <a href="/register" className="landing-btn px-16! py-4!">
             Get Started
           </a>
         </Button>

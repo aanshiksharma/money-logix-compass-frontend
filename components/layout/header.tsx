@@ -47,7 +47,7 @@ export function Header({
         sticky top-0 min-h-12 z-2
         flex items-center justify-between
         bg-transparent backdrop-blur-md
-        w-full px-4 ${size === "sm" ? "py-2" : "py-4"}
+        w-screen px-4 ${size === "sm" ? "py-2" : "py-4"}
         ${className}
     `}
     >

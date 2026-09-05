@@ -27,7 +27,7 @@
   }
 
   .gradient-background {
-    background-image: var(--gradient);
+    background-image: var(--background-gradient);
   }
 
   .gradient-text {

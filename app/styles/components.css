@@ -13,27 +13,37 @@
       ),
       var(--background), no-repeat;
 
-    &::before {
-      content: "";
+    .landing-grid {
+      @apply pointer-events-none z-0 opacity-46;
 
-      @apply fixed inset-0 z-0 pointer-events-none opacity-46;
+      &::before {
+        content: "";
 
-      background-image:
-        linear-gradient(rgba(138, 180, 248, 0.1) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(138, 180, 248, 0.1) 1px, transparent 1px);
-      background-size: 72px 72px;
+        position: absolute;
 
-      -webkit-mask-image: linear-gradient(
-        to bottom,
-        var(--background) 0%,
-        transparent 76%
-      );
-      mask-image: linear-gradient(
-        to bottom,
-        var(--background) 0%,
-        transparent 76%
-      );
-      animation: landingGridDrift 28s linear infinite;
+        /* Make it larger so movement never exposes empty space */
+        inset: -72px;
+
+        background-image:
+          linear-gradient(rgba(138, 180, 248, 0.1) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(138, 180, 248, 0.1) 1px, transparent 1px);
+
+        background-size: 72px 72px;
+
+        /* animation: landingGridDrift 28s linear infinite; */
+
+        -webkit-mask-image: linear-gradient(
+          to bottom,
+          var(--background) 0%,
+          transparent 76%
+        );
+
+        mask-image: linear-gradient(
+          to bottom,
+          var(--background) 0%,
+          transparent 76%
+        );
+      }
     }
 
     .hero {
